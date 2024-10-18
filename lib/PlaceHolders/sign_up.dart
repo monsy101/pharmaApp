@@ -1,14 +1,16 @@
 
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+import '../assets/colors/colors.dart';
+
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<SignupScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -24,22 +26,22 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final userData = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  bool isShowPassword = true;
+  bool isShowPassword = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: colors[4],
       body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Login',
+                Text(
+                  'Sign up',
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: colors[1],
                     fontSize: 40,
                   ),
                 ),
@@ -73,9 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                     focusedBorder:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.person_2_rounded,
-                      color: Colors.blue,
+                      color: colors[1],
                     ),
                     hintText: 'User name',
                   ),
@@ -112,9 +114,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Colors.red,
                         ),
                         borderRadius: BorderRadius.circular(15)),
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.mail,
-                      color: Colors.blue,
+                      color: colors[1],
                     ),
                     hintText: 'Email',
                   ),
@@ -151,9 +153,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                     focusedBorder:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.password_rounded,
-                      color: Colors.blue,
+                      color: colors[1],
                     ),
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -163,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       icon: Icon(
                         isShowPassword ? Icons.visibility_off : Icons.visibility,
-                        color: Colors.blue.withOpacity(1),
+                        color: Colors.grey,
                       ),
                     ),
                     hintText: 'Enter your Password',
@@ -172,10 +174,60 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 20,
                 ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (String? value) {
+                    if (value?.isEmpty == true) {
+                      return "password mast have value";
+                    }
+                    if ((value?.length ?? 0) < 4) {
+                      return "password mast have value";
+                    }
+                    return null;
+                  },
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: isShowPassword,
+                  decoration: InputDecoration(
+                    errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                        ),
+                        borderRadius: BorderRadius.circular(15)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.red,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(10)),
+                    enabledBorder:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                    focusedBorder:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                    prefixIcon: Icon(
+                      Icons.password_rounded,
+                      color: colors[1],
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isShowPassword = !isShowPassword;
+                        });
+                      },
+                      icon: Icon(
+                        isShowPassword ? Icons.visibility_off : Icons.visibility,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    hintText: 'Confirm the Password',
+                  ),
+                ),
                 const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
                   width: double.infinity,
                   child: Divider(
-                    color: Colors.blue,
+                    color: colors[1],
                     thickness: 1.4,
                   ),
                 ),
@@ -184,11 +236,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 // ),
                 TextButton(
                     onPressed: () {
-                      // print(userData.text);
+                      print(userData.text);
                     },
-                    child: const Text(
+                    child: Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: colors[0]),
                     )),
                 ElevatedButton(
                   onPressed: () {
@@ -198,35 +250,34 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      shadowColor: Colors.blue,
-                      backgroundColor: Colors.blue,
+                      backgroundColor: colors[1],
                       minimumSize: const Size(double.infinity, 50)),
-                  child: const Opacity(
+                  child: Opacity(
                       opacity: 1,
                       child: Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        'Sign up',
+                        style: TextStyle(color: colors[4], fontSize: 24),
                       )),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("don't have account"),
+                    const Text("Already Registered?"),
                     TextButton(
                         onPressed: () {
                           // Navigator.push(
                           //     context,
                           //     MaterialPageRoute(
                           //         builder: (BuildContext context) =>
-                          //             SignupScreen()));
+                          //             LoginScreen()));
                         },
-                        child: const Opacity(
+                        child: Opacity(
                           opacity: 1,
                           child: Text(
-                            'Sign up',
-                            style: TextStyle(color: Colors.blue, fontSize: 15),
+                            'Login',
+                            style: TextStyle(color: colors[1], fontSize: 15),
                           ),
-                        )),
+                        ))
                   ],
                 ),
               ],
