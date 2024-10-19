@@ -1,6 +1,10 @@
 # elzeiny_project
 
-A new Flutter project.
+This is a project for a pharmaceuticals mobile application in development by mmy for a friend's graduation project. 
+
+# Important 
+
+if you want to use this in any kind of way, you are free to do so. but i would aapapprecite getting credited. 
 
 ## Getting Started
 
