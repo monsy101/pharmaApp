@@ -1,5 +1,6 @@
 import 'package:elzeiny_project/PlaceHolders/home_screen.dart';
 import 'package:elzeiny_project/PlaceHolders/log_in_screen.dart';
+import 'package:elzeiny_project/PlaceHolders/shop_screen.dart';
 import 'package:elzeiny_project/PlaceHolders/sign_up.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: ShopScreen(),
     );
   }
 }
