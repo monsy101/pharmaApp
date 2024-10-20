@@ -7,3 +7,6 @@ List<Color> colors = [
   const Color(0xff549F93),
   const Color(0xffF8F7FF),
 ];
+
+String placeHolderImageLink =
+    "https://cdn3.iconfinder.com/data/icons/basic-ui-6/40/Asset_12-512.png";
