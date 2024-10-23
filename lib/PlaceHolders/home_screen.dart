@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ]),
                           ),
                           Text(
-                            "÷nsurance",
+                            "Insurance",
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           )
