@@ -1,0 +1,16 @@
+{
+  "drugs": [
+    {
+      "id": 0,
+      "name": "Panadol",
+      "active_ingredient": "Paracetamol",
+      "description": "Pain reliever and fever reducer commonly used for headaches and minor aches.",
+      "main_symptoms": [
+        "Headache",
+        "Fever",
+        "Muscle pain"
+      ],
+      "category": "Analgesic"
+    }
+  ]
+}

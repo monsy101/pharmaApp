@@ -1,7 +1,7 @@
 import 'package:elzeiny_project/PlaceHolders/home_screen.dart';
-import 'package:elzeiny_project/PlaceHolders/log_in_screen.dart';
+import 'package:elzeiny_project/authintication/login.dart';
 import 'package:elzeiny_project/PlaceHolders/shop_screen.dart';
-import 'package:elzeiny_project/PlaceHolders/sign_up.dart';
+import 'package:elzeiny_project/authintication/signup.dart';
 import 'package:flutter/material.dart';
 
 import 'PlaceHolders/sql_test.dart';
@@ -18,8 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'elzeiny Demo',
-      home: SqlTest(),
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.purpleAccent),
+          useMaterial3: true),
+      home: SignUp(),
     );
   }
 }
-
